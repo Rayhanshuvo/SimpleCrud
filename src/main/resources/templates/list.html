@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<table>
+<tr th:each="l : ${list}">
+<td th:text="${l.firstName}"></td>
+<td th:text="${l.lastName}"></td>
+<td th:text="${l.id}"></td>
+<td><a th:href="@{|/edit/${l.id}|}">Edit</a></td>
+<td><a th:href="@{|/delete/${l.id}|}">Delete</a></td>
+</tr>
+</table>
+
+</body>
+</html>

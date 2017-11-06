@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<form th:action="@{/save}" th:object="${crud}" method="post">
+  First name:
+  <input type="text" name="firstname" th:field="*{firstName}"></input>
+  Last name:
+  <input type="text" name="lastname" th:field="*{lastName}"></input>
+ 
+  <input type="submit" value="Ok"> </input>
+</form>
+<a th:href="@{/showlist}">list</a>
+</body>
+</html>
