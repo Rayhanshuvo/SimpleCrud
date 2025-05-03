@@ -1,8 +1,11 @@
-FROM gitpod/workspace-full:latest
+FROM gitpod/workspace-base
 
-# Install Java 17 using SDKMAN
-RUN yes | sdk install java 17.0.8-tem && \
-    sdk use java 17.0.8-tem
+# Install Docker Compose
+RUN sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" \
+    -o /usr/local/bin/docker-compose && \
+    sudo chmod +x /usr/local/bin/docker-compose
 
-# Install MySQL client (optional)
-RUN sudo apt-get update && sudo apt-get install -y mysql-client
+# Install Java 17 SDK
+RUN SDKMAN_DIR="/home/gitpod/.sdkman" && \
+    curl -s "https://get.sdkman.io" | bash && \
+    bash -c "source $SDKMAN_DIR/bin/sdkman-init.sh && sdk install java 17.0.8-tem"
