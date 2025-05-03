@@ -2,7 +2,7 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - name: Start MySQL and App
+  - name: Start MySQL and Spring Boot
     command: |
       docker-compose up -d
       ./mvnw spring-boot:run
