@@ -1,0 +1,14 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: Start MySQL and App
+    command: |
+      docker-compose up -d
+      ./mvnw spring-boot:run
+
+ports:
+  - port: 8080
+    onOpen: open-preview
+  - port: 3306
+    onOpen: ignore
